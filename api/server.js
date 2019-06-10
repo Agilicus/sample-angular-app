@@ -7,10 +7,24 @@ const express = require('express'),
 
 const businessRoute = require('./routes/business.route');
 mongoose.Promise = global.Promise;
+if (false) {
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {console.log('Database is connected') },
   err => { console.log('Cannot connect to the database'+ err)}
 );
+} else {
+  var connectWithRetry = function(db) {
+    return mongoose.connect(db, { useNewUrlParser: true}).then(
+      () => { console.log('Database is connected') },
+      err => {
+        console.error('Failed to connect to mongo on startup - retrying in 5 sec', err);
+        setTimeout(connectWithRetry, 5000, db);
+      }
+    );
+  }
+  connectWithRetry(config.DB);
+}
+
 var version=process.env.version || "1.0"
 
 const app = express();
