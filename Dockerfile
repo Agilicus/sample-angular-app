@@ -1,9 +1,14 @@
+FROM node:latest as build
+COPY ./ /app
+WORKDIR /app
+RUN npm ci \
+ && node_modules/.bin/ng build
+
 FROM node:latest
 
+COPY --from=build /app/dist /app/dist
 RUN mkdir -p /app/api
-RUN mkdir -p /app/dist
 ADD  ./api /app/api
-COPY ./dist /app/dist
 
 WORKDIR /app/api
 RUN npm install

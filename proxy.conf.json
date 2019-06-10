@@ -1,31 +1,11 @@
 {
-    "/add": {
-        "target": "http://localhost:4000",
-        "changeOrigin": false,
-        "secure": false
-    },
-    "/edit": {
-        "target": "http://localhost:4000",
-        "changeOrigin": false,
-        "secure": false
-    },
-    "/delete": {
-        "target": "http://localhost:4000",
-        "changeOrigin": false,
-        "secure": false
-    },
-    "/update": {
-        "target": "http://localhost:4000",
-        "changeOrigin": false,
-        "secure": false
-    },
     "/getversion": {
-        "target": "http://localhost:4000",
+        "target": "http://localhost:5000",
         "changeOrigin": true,
         "secure": false
     },
     "/business": {
-        "target": "http://localhost:4000",
+        "target": "http://localhost:5000",
         "changeOrigin": false,
         "secure": false
     }
