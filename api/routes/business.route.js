@@ -38,7 +38,7 @@ businessRoutes.route('/edit/:id').get(function (req, res) {
 });
 
 //  Defined update route
-businessRoutes.route('/update/:id').post(function (req, res) {
+businessRoutes.route('/update/:id').put(function (req, res) {
     Business.findById(req.params.id, function(err, business) {
     if (!business)
       return next(new Error('Could not load Document'));
@@ -58,7 +58,7 @@ businessRoutes.route('/update/:id').post(function (req, res) {
 });
 
 // Defined delete | remove | destroy route
-businessRoutes.route('/delete/:id').get(function (req, res) {
+businessRoutes.route('/delete/:id').delete(function (req, res) {
     Business.findByIdAndRemove({_id: req.params.id}, function(err, business){
         if(err) res.json(err);
         else res.json('Successfully removed');

@@ -48,13 +48,13 @@ export class BusinessService {
       };
     this
       .http
-      .post(`${this.uri}/update/${id}`, obj)
+      .put(`${this.uri}/update/${id}`, obj)
       .subscribe(res => console.log('Done'));
   }
 
  deleteBusiness(id) {
     return this
               .http
-              .get(`${this.uri}/delete/${id}`);
+              .delete(`${this.uri}/delete/${id}`);
   }
 }
