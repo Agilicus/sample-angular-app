@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.2](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.1...v0.1.2) (2019-06-13)
+
+
+### Bug Fixes
+
+* make route use /biz to avoid ambiguity w/ api ([a58636d](https://git.agilicus.com/don/sample-angular-app/commits/a58636d))
+
+
+
 ## [0.1.1](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.0...v0.1.1) (2019-06-13)
 
 
