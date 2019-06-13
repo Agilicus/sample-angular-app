@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.1](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.0...v0.1.1) (2019-06-13)
+
+
+### Bug Fixes
+
+* add alert box on 401 in api ([add9816](https://git.agilicus.com/don/sample-angular-app/commits/add9816))
+
+
+
 # [0.1.0](https://git.agilicus.com/don/sample-angular-app/compare/v0.0.3...v0.1.0) (2019-06-13)
 
 
