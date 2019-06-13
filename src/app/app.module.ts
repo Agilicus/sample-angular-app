@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { OAuthModule } from 'angular-oauth2-oidc';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,9 @@ import { GstEditComponent } from './gst-edit/gst-edit.component';
 
 import { BusinessService } from './business.service';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +27,13 @@ import { BusinessService } from './business.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OAuthModule.forRoot()
   ],
-  providers: [ BusinessService ],
-  bootstrap: [AppComponent]
+  providers: [BusinessService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
+  bootstrap: [AppComponent
+  ]
 })
 export class AppModule { }
