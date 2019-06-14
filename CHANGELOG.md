@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.5](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.4...v0.1.5) (2019-06-14)
+
+
+### Bug Fixes
+
+* correct logout ([f2eaa57](https://git.agilicus.com/don/sample-angular-app/commits/f2eaa57))
+
+
+
 ## [0.1.4](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.3...v0.1.4) (2019-06-13)
 
 
