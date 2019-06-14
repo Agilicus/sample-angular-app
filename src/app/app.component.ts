@@ -32,25 +32,34 @@ export class AppComponent implements OnInit {
     });
   }
 
-
   public get role() {
-    if (!this.rbac.rbac) return null;
+    if (!this.rbac.rbac) {
+       return null;
+    }
     return this.rbac.rbac.roles['app-1'];
   }
   public get first() {
-    if (!this.rbac.rbac) return null;
+    if (!this.rbac.rbac) {
+      return null;
+    }
     return this.rbac.rbac.first_name;
   }
   public get last() {
-    if (!this.rbac.rbac) return null;
+    if (!this.rbac.rbac) {
+      return null;
+    }
     return this.rbac.rbac.last_name;
   }
   public get email() {
-    if (!this.rbac.rbac) return null;
+    if (!this.rbac.rbac) {
+      return null;
+    }
     return this.rbac.rbac.email;
   }
   public get provider() {
-    if (!this.rbac.rbac) return null;
+    if (!this.rbac.rbac) {
+      return null;
+    }
     return this.rbac.rbac.provider;
   }
 
@@ -61,6 +70,7 @@ export class AppComponent implements OnInit {
   public logoff() {
       this.rbac.logout();
       this.oauthService.logOut();
+      this._router.navigate(['']);
   }
 
   private configureWithNewConfigApi() {
@@ -68,12 +78,9 @@ export class AppComponent implements OnInit {
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin({
       onTokenReceived: context => {
-        console.debug("Logged in");
-        console.debug(context);
         this.rbac.getRbac(context.idToken).subscribe(
           v => {
             this.rbac.rbac = v;
-            console.debug(v)
           }
         );
       }
@@ -85,7 +92,6 @@ export class AppComponent implements OnInit {
       .getVersion()
       .subscribe((data) => {
         this.version = data;
-        console.log(this.version)
       });
   }
   private navigationInterceptor(event: Event): void {
