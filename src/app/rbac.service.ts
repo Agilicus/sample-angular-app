@@ -12,8 +12,16 @@ import { tap } from 'rxjs/operators';
 })
 export class RbacService {
   rbac: RbacInfo;
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {
+    var rb = localStorage.getItem('rbac');
+    if (rb) {
+        this.rbac = JSON.parse(rb);
+    }
+   }
+  logout() {
+    this.rbac = null;
+    localStorage.removeItem('rbac');
+  }
   getRbac(id_token:string): Observable<RbacInfo> {
     let msg = { 'id_token': id_token };
     const httpOptions = {
@@ -27,6 +35,7 @@ export class RbacService {
         tap(
             _rbac => {
               this.rbac = _rbac;
+              localStorage.setItem('rbac', JSON.stringify(this.rbac));
             }
         )
       );

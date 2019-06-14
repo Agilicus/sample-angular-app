@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
   logo = require('../assets/shield.png');
   version = {};
   shield = require('../assets/shield.png');
-  rbacInfo = null;
 
   constructor(private _router: Router, private bs: BusinessService, private rbac: RbacService, private oauthService: OAuthService) {
     this.configureWithNewConfigApi();
@@ -35,24 +34,24 @@ export class AppComponent implements OnInit {
 
 
   public get role() {
-    if (!this.rbacInfo) return null;
-    return this.rbacInfo.roles['app-1'];
+    if (!this.rbac.rbac) return null;
+    return this.rbac.rbac.roles['app-1'];
   }
   public get first() {
-    if (!this.rbacInfo) return null;
-    return this.rbacInfo.first_name;
+    if (!this.rbac.rbac) return null;
+    return this.rbac.rbac.first_name;
   }
   public get last() {
-    if (!this.rbacInfo) return null;
-    return this.rbacInfo.last_name;
+    if (!this.rbac.rbac) return null;
+    return this.rbac.rbac.last_name;
   }
   public get email() {
-    if (!this.rbacInfo) return null;
-    return this.rbacInfo.email;
+    if (!this.rbac.rbac) return null;
+    return this.rbac.rbac.email;
   }
   public get provider() {
-    if (!this.rbacInfo) return null;
-    return this.rbacInfo.provider;
+    if (!this.rbac.rbac) return null;
+    return this.rbac.rbac.provider;
   }
 
   public login() {
@@ -60,7 +59,7 @@ export class AppComponent implements OnInit {
   }
 
   public logoff() {
-      this.rbacInfo = null;
+      this.rbac.logout();
       this.oauthService.logOut();
   }
 
@@ -73,7 +72,7 @@ export class AppComponent implements OnInit {
         console.debug(context);
         this.rbac.getRbac(context.idToken).subscribe(
           v => {
-            this.rbacInfo = v;
+            this.rbac.rbac = v;
             console.debug(v)
           }
         );

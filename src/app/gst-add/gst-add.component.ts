@@ -8,7 +8,6 @@ import { BusinessService } from '../business.service';
   styleUrls: ['./gst-add.component.css']
 })
 export class GstAddComponent implements OnInit {
-
   angForm: FormGroup;
   constructor(private fb: FormBuilder, private bs: BusinessService) {
     this.createForm();
@@ -24,8 +23,8 @@ export class GstAddComponent implements OnInit {
 
   addBusiness(person_name, busines_name, business_gst_number) {
     this.bs.addBusiness(person_name, busines_name, business_gst_number);
+    this.angForm.reset();
   }
-
   ngOnInit() {
   }
 

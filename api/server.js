@@ -1,4 +1,5 @@
 const express = require('express'),
+    morgan = require('morgan'),
     path = require('path'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
@@ -28,6 +29,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 var version=process.env.version || "1.0"
 
 const app = express();
+app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname,'../dist/sample-angular-app')));
