@@ -26,7 +26,19 @@ export class AuthInterceptor implements HttpInterceptor {
     // Do not add auth header to the auth system itself
     const re = /https:\/\/auth./gi;
     if (request.url.search(re) === 0 || !this.rbacService.rbac) {
-      return next.handle(request);
+      return next.handle(request).pipe(
+        tap(
+          () => {},
+          (err: any) => {
+            if(err instanceof HttpErrorResponse) {
+              if(err.status === 401 || err.status == 403) {
+                alert("No permission: not signed in");
+                this.router.navigate(['']);
+              }
+            }
+          }
+        )
+      )
     }
 
     const requestId = shortuuid.generate();
