@@ -1,41 +1,21 @@
 <body>
-  <div class="container-fluid">
-    <a routerLink=""><img class="branding" alt="logo" [src]="logo" height="48px" /></a>
-    <h1>Business List</h1>
-  </div>
 
-  <nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <button class="nav-link" (click)="login()">
-            Login
-          </button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link" (click)="logoff()">
-            Logout
-          </button></li>
-        <li class="nav-item">
-          <a routerLink="biz/create" class="nav-link" routerLinkActive="active">
-            Create Business
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="biz" class="nav-link" routerLinkActive="active">
-            Business
-          </a>
-        </li>
-      </ul>
+  <div class="header">
+    <a routerLink="" class="logo"><img class="branding" alt="logo" [src]="logo" height="48px" />egov.city</a>
+    <h1>Business List</h1>
+    <div class="header-right">
+      <button class="nav-link" (click)="login()">Login</button>
+      <button class="nav-link" (click)="logoff()">Logout</button>
+          <a routerLink="biz/create" class="nav-link" routerLinkActive="router-link-active">Create Business</a>
+          <a routerLink="biz" class="nav-link" routerLinkActive="router-link-active">View Business</a>
     </div>
-  </nav>
-  <br />
+  </div>
 
   <div class="container">
     <router-outlet></router-outlet>
   </div>
   <hr>
-  <div border="1px">
+  <div class="whoami" border-style="dotted" border="2px">
     <ul>
       <li>First: {{first}}</li>
       <li>Last: {{last}}</li>
