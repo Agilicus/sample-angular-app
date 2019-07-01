@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.9](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.8...v0.1.9) (2019-07-01)
+
+
+### Bug Fixes
+
+* resolve shelljs security issue WS-2017-3737 ([387d18d](https://git.agilicus.com/don/sample-angular-app/commits/387d18d))
+
+
+
 ## [0.1.8](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.7...v0.1.8) (2019-07-01)
 
 
