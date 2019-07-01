@@ -29,7 +29,7 @@ export class RbacService {
         'Content-Type': 'application/json',
       })
     };
-    return this.http.post('https://auth.egov.city/whoami',
+    return this.http.post('https://auth.cloud.egov.city/v1/whoami',
       msg,
       httpOptions).pipe(
         tap(
