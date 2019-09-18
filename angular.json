@@ -52,6 +52,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "test": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.test.ts"
+                }
+              ]
             }
           }
         },
@@ -64,6 +72,9 @@
           "configurations": {
             "production": {
               "browserTarget": "sample-angular-app:build:production"
+            },
+            "test": {
+              "browserTarget": "sample-angular-app:build:test"
             }
           }
         },
@@ -118,6 +129,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "sample-angular-app:serve:production"
+            },
+            "test": {
+              "devServerTarget": "sample-angular-app:serve:test"
             }
           }
         },

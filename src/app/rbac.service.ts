@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { RbacInfo } from './rbac.model';
+import { authConfig } from './auth.config';
 
 import { Observable } from 'rxjs';
 
@@ -29,7 +30,8 @@ export class RbacService {
         'Content-Type': 'application/json',
       })
     };
-    return this.http.post('https://auth.cloud.egov.city/v1/whoami',
+    const url = 'https://' + authConfig.issuer + '/v1/whoami';
+    return this.http.post(url,
       msg,
       httpOptions).pipe(
         tap(
