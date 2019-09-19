@@ -30,7 +30,7 @@ export class RbacService {
         'Content-Type': 'application/json',
       })
     };
-    const url = 'authConfig.issuer' + 'v1/whoami';
+    const url = authConfig.issuer + 'v1/whoami';
     return this.http.post(url,
       msg,
       httpOptions).pipe(
