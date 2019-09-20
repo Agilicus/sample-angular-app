@@ -1,9 +1,11 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
-import { environment as env } from '../environments/environment'
+import { DynamicEnvironmentService } from './dynamic-environment.init';
+
+const env = new DynamicEnvironmentService();
 
 function baseHost(): string {
-  if (env['overrideDomain']) {
-    return env['overrideDomain'];
+  if (env.environment['overrideDomain']) {
+    return env.environment['overrideDomain'];
   }
 
   const hostname = window.location.hostname;
@@ -21,3 +23,5 @@ export const authConfig: AuthConfig = {
   clientId: baseHost(),
   scope: 'openid profile email federated:id',
 }
+
+const x = authConfig;
