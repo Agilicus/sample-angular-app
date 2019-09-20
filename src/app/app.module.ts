@@ -35,15 +35,15 @@ export function init_app(appLoadService: DynamicEnvironmentService) {
     HttpClientModule,
     OAuthModule.forRoot()
   ],
-  providers: [BusinessService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    DynamicEnvironmentService,
+  providers: [DynamicEnvironmentService,
     {
       provide: APP_INITIALIZER,
       useFactory: init_app,
       deps: [DynamicEnvironmentService],
       multi: true
-    }
+    },
+    BusinessService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent
   ]

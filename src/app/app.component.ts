@@ -4,7 +4,7 @@ import { BusinessService } from '../app/business.service';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
-import { authConfig } from './auth.config';
+import { AuthService } from './auth.service';
 
 import { RbacService } from './rbac.service';
 
@@ -25,7 +25,11 @@ export class AppComponent implements OnInit {
   version = {};
   shield = require('../assets/shield.png');
 
-  constructor(private _router: Router, private bs: BusinessService, private rbac: RbacService, private oauthService: OAuthService) {
+  constructor(private _router: Router,
+              private bs: BusinessService,
+              private rbac: RbacService,
+              private oauthService: OAuthService,
+              private authService: AuthService) {
     this.configureWithNewConfigApi();
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
@@ -74,7 +78,7 @@ export class AppComponent implements OnInit {
   }
 
   private configureWithNewConfigApi() {
-    this.oauthService.configure(authConfig);
+    this.oauthService.configure(this.authService.authConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
     this.oauthService.loadDiscoveryDocumentAndTryLogin({
       onTokenReceived: context => {
