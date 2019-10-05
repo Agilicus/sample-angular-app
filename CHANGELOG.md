@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.2.0](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.9...v0.2.0) (2019-10-05)
+
+
+### Bug Fixes
+
+* override the client id as well ([5bd5ac0](https://git.agilicus.com/don/sample-angular-app/commits/5bd5ac0))
+* pay more attention to what I am doing ([7968d80](https://git.agilicus.com/don/sample-angular-app/commits/7968d80))
+* use issuer directly ([807604e](https://git.agilicus.com/don/sample-angular-app/commits/807604e))
+
+
+### Features
+
+* add environment overrides ([9f78b36](https://git.agilicus.com/don/sample-angular-app/commits/9f78b36))
+* infer auth  endpoints from location ([f15d554](https://git.agilicus.com/don/sample-angular-app/commits/f15d554))
+* move auth config into a service ([1cc2fa3](https://git.agilicus.com/don/sample-angular-app/commits/1cc2fa3))
+
+
+
 ## [0.1.9](https://git.agilicus.com/don/sample-angular-app/compare/v0.1.8...v0.1.9) (2019-07-01)
 
 
