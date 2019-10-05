@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { RbacInfo } from './rbac.model';
+import { AuthService } from './auth.service';
 
 import { Observable } from 'rxjs';
 
@@ -12,7 +13,8 @@ import { tap } from 'rxjs/operators';
 })
 export class RbacService {
   rbac: RbacInfo;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private authService: AuthService) {
     var rb = localStorage.getItem('rbac');
     if (rb) {
         this.rbac = JSON.parse(rb);
@@ -29,7 +31,8 @@ export class RbacService {
         'Content-Type': 'application/json',
       })
     };
-    return this.http.post('https://auth.cloud.egov.city/v1/whoami',
+    const url = this.authService.authConfig.issuer + 'v1/whoami';
+    return this.http.post(url,
       msg,
       httpOptions).pipe(
         tap(
