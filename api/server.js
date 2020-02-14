@@ -34,6 +34,10 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname,'../dist/sample-angular-app')));
 
+app.get('/healthz', (req, res) => {
+  res.send('OK')
+})
+
 app.get('/getversion',function(req,res){
   console.log('Version '+version);
   res.status(200).json({version:version})
