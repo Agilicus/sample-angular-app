@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://git.agilicus.com/don/sample-angular-app/compare/v0.2.1...v0.2.2) (2020-04-09)
+
+
+### Bug Fixes
+
+* remove ng2-slim-loading-bar ([06d6875](https://git.agilicus.com/don/sample-angular-app/commit/06d6875bfb4e59d35eb231d1022846c0efc81571))
+* update audit & test ([32c37a8](https://git.agilicus.com/don/sample-angular-app/commit/32c37a8bb9eaee71e0aea852428822c4a5ae0521))
+* update audit failures ([355383a](https://git.agilicus.com/don/sample-angular-app/commit/355383ad0b66001fef718b113439e4e0e699e0bc))
+* wip upgrade ([467d4c5](https://git.agilicus.com/don/sample-angular-app/commit/467d4c5295c58df2cc85944fccc716bdf6179282))
+
 ### [0.2.1](https://git.agilicus.com/don/sample-angular-app/compare/v0.2.0...v0.2.1) (2020-02-14)
 
 
