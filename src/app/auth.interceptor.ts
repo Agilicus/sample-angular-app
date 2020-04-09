@@ -30,15 +30,15 @@ export class AuthInterceptor implements HttpInterceptor {
         tap(
           () => {},
           (err: any) => {
-            if(err instanceof HttpErrorResponse) {
-              if(err.status === 401 || err.status == 403) {
-                alert("No permission: not signed in");
+            if (err instanceof HttpErrorResponse) {
+              if (err.status === 401 || err.status === 403) {
+                alert('No permission: not signed in');
                 this.router.navigate(['']);
               }
             }
           }
         )
-      )
+      );
     }
 
     const requestId = shortuuid.generate();
@@ -54,7 +54,7 @@ export class AuthInterceptor implements HttpInterceptor {
         (err: any) => {
           if (err instanceof HttpErrorResponse) {
             if (err.status === 401 || err.status === 403) {
-              alert("No permission for action");
+              alert('No permission for action');
               this.router.navigate(['']);
             }
           }
