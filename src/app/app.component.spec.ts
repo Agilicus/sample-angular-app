@@ -1,12 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { OAuthService, UrlHelperService, OAuthLogger } from 'angular-oauth2-oidc';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
+      ],
+      providers: [
+        { provide: UrlHelperService },
+        { provide: OAuthLogger },
+        { provide: HttpClient },
+        { provide: HttpHandler },
+        { provide: OAuthService }
       ],
       declarations: [
         AppComponent
@@ -26,10 +35,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('sample-angular-app');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to sample-angular-app!');
-  });
 });

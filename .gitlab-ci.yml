@@ -1,6 +1,7 @@
 ---
 stages:
   - lint
+  - test
   - autorel
   - build
 
@@ -9,6 +10,13 @@ lint:
   image: cr.agilicus.com/corp-tools/build-containers/conform
   script: |
     [ -n "$CI_MERGE_REQUEST_ID" ] && /usr/local/bin/conform enforce || true
+
+test:
+  image: cr.agilicus.com/corp-tools/angular-build
+  script: |
+    su node -c "npm i"
+    su node -c "npm run lint"
+    su node -c "npm run test"
 
 autorel:
   stage: autorel

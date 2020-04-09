@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { BusinessService } from '../app/business.service';
 
@@ -29,11 +30,14 @@ export class AppComponent implements OnInit {
               private bs: BusinessService,
               private rbac: RbacService,
               private oauthService: OAuthService,
-              private authService: AuthService) {
-    this.configureWithNewConfigApi();
+              private authService: AuthService,
+              private titleService: Title) {
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
+  }
+  public setTitle( newTitle: string) {
+      this.titleService.setTitle( newTitle );
   }
 
   public get role() {
@@ -92,6 +96,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.configureWithNewConfigApi();
     this.bs
       .getVersion()
       .subscribe((data) => {

@@ -15,7 +15,7 @@ export class RbacService {
   rbac: RbacInfo;
   constructor(private http: HttpClient,
               private authService: AuthService) {
-    var rb = localStorage.getItem('rbac');
+    const rb = localStorage.getItem('rbac');
     if (rb) {
         this.rbac = JSON.parse(rb);
     }
@@ -24,8 +24,8 @@ export class RbacService {
     this.rbac = null;
     localStorage.removeItem('rbac');
   }
-  getRbac(id_token:string): Observable<RbacInfo> {
-    let msg = { 'id_token': id_token };
+  getRbac(id_token: string): Observable<RbacInfo> {
+    const msg = { 'id_token': id_token };
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

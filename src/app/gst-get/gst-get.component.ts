@@ -23,7 +23,7 @@ export class GstGetComponent implements OnInit {
 
   deleteBusiness(id) {
     this.bs.deleteBusiness(id).subscribe(res => {
-      this.businesses = this.businesses.filter(item => item._id != id);
+      this.businesses = this.businesses.filter(item => item._id !== id);
       console.log('Deleted');
     });
   }
